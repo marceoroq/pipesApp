@@ -6,12 +6,67 @@
 
 <div class="p-grid text-layout">
     <div class="p-col-4">
-        
+        <p-card header="uppercase"
+                subheader="input: {{upperName}}">
+                output: {{ upperName | uppercase }}
+        </p-card>
     </div>
     <div class="p-col-4">
-        2 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere officiis ratione sequi, deserunt dolorum veritatis eveniet quibusdam nostrum cupiditate delectus aliquid similique est expedita, non a, consectetur magni ducimus voluptas.
+        <p-card header="lowercase"
+                subheader="input: {{lowerName}}">
+                output: {{ lowerName | lowercase }}
+        </p-card>
     </div>
     <div class="p-col-4">
-        3 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere officiis ratione sequi, deserunt dolorum veritatis eveniet quibusdam nostrum cupiditate delectus aliquid similique est expedita, non a, consectetur magni ducimus voluptas.
+        <p-card header="titlecase"
+                subheader="input: {{fullName}}">
+                output: {{ fullName | titlecase }}
+        </p-card>
+    </div>
+</div>
+
+<div class="text-layout">
+    <h1>Date Pipe</h1>
+    <p>Pipe to format date values</p>
+</div>
+
+<div class="p-grid text-layout">
+    <div class="p-col-6">
+        <p-card>
+            <ul>
+                <li>myDate</li>
+                <li>myDate | date</li>
+                <li>myDate | date:'short'</li>
+                <li>myDate | date:'long'</li>
+                <li>myDate | date:'MMMM'</li>
+                <li>myDate | date:'MMMM dd, YYYY'</li>
+                <li>myDate | date:'HH:mm:ss, EEE dd LLL YYYY'</li>
+            </ul>
+            <hr>
+            <ul>
+                <li>myDate | date:'long':'GMT-6'</li>
+                <li>myDate | date:'long':'GMT-4'</li>
+                <li>myDate | date:'long':'':'es-AR'</li>
+            </ul>
+        </p-card>
+    </div>
+    <div class="p-col-6">
+        <p-card>
+            <ul>
+                <li>{{myDate}}</li>
+                <li>{{myDate | date}}</li>
+                <li>{{myDate | date:'short'}}</li>
+                <li>{{myDate | date:'long'}}</li>
+                <li>{{myDate | date:'MMMM'}}</li>
+                <li>{{myDate | date:'MMMM dd, YYYY'}}</li>
+                <li>{{myDate | date:'HH:mm:ss, EEE dd LLL YYYY'}}</li>
+            </ul>
+            <hr>
+            <ul>
+                <li>{{myDate | date:'long':'GMT-6'}}</li>
+                <li>{{myDate | date:'long':'GMT-4'}}</li>
+                <li>{{myDate | date:'long':'':'es-AR'}}</li>
+            </ul>
+        </p-card>
     </div>
 </div>
