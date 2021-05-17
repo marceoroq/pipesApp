@@ -6,12 +6,47 @@
 <div class="p-grid">
     <div class="p-col p-md-6">
         <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur omnis fugit pariatur perspiciatis tempore voluptate repudiandae dolorem optio. Veritatis deleniti sit officiis maxime aliquam modi enim explicabo saepe repellat atque?
+            <p>{{ gender | i18nSelect:genderMap }} {{name}}, it's a pleasure to invite you to our event.</p>
+            <button pButton (click)="changeClient()" label="Change Client" class="p-button-outlined p-button-warning" icon="pi pi-user"></button>
         </p-fieldset>
     </div>
     <div class="p-col p-md-6">
         <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur omnis fugit pariatur perspiciatis tempore voluptate repudiandae dolorem optio. Veritatis deleniti sit officiis maxime aliquam modi enim explicabo saepe repellat atque?
+            <p>We currently have {{ clients.length | i18nPlural:clientsMap }}</p>
+            <button pButton (click)="deleteClient()" label="Delete Client" class="p-button-outlined p-button-danger" icon="pi pi-trash"></button>
+        </p-fieldset>
+    </div>
+    <div class="p-col p-md-6">
+        <p-fieldset legend="Slice Pipe" [toggleable]="true">
+            <b>Original</b>
+            <pre>{{ clients }}</pre>
+            <b>slice:0:4</b>
+            <pre>{{ clients | slice:0:4 }}</pre>
+            <b>slice:2:5</b>
+            <pre>{{ clients | slice:2:5 }}</pre>
+            <b>slice:3</b>
+            <pre>{{ clients | slice:3 }}</pre>
+        </p-fieldset>
+    </div>
+    <div class="p-col p-md-6">
+        <p-fieldset legend="Json Pipe" [toggleable]="true">
+            <pre>{{ heroes | json }}</pre>
+        </p-fieldset>
+    </div>
+    <div class="p-col p-md-6">
+        <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+            <ul>
+                <li *ngFor="let info of client | keyvalue">
+                    <b>{{ info.key | titlecase}}:</b> {{ info.value }}
+                </li>
+            </ul>
+        </p-fieldset>
+    </div>
+    <div class="p-col p-md-6">
+        <p-fieldset legend="Async Pipe" [toggleable]="true">
+            <pre>{{ myObservable | async }}</pre>
+            <pre *ngIf="!(promiseValue | async)"> Resolving promise...</pre>
+            <pre>{{ promiseValue | async }}</pre>
         </p-fieldset>
     </div>
 </div>
